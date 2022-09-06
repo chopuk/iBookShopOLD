@@ -1,0 +1,28 @@
+extends ../layout
+
+block content
+  div.row#mycolour
+    div.col-sm-4
+      img.bookimagehuge(src='/images/#{book.cover}')
+    div.col-sm-4
+      h1 #{book.title}
+      h4 Category: #{book.categories}
+      h4 Author: #{book.author}
+      h4 Publisher: #{book.publisher}
+      h4 Quantity in Stock: #{book.quantity}
+      .price
+        |Buy it for 
+        span
+          !=displayPrice(book.price)
+      br
+      p #{book.description}
+      div.row
+        div.col-sm-3
+          if book.quantity > 0
+            form(method='post', action='/cart/#{book._id}')
+              input.btn.btn-primary.btn-round(type='submit', value='Add To Cart')
+              input(type='hidden', value='{_csrf}', name='_csrf')
+          else
+            a.btn.btn-danger.btn-round(href='#') Out Of Stock
+        div.col-sm-4
+          a.btn.btn-warning.btn-round(href='/continue') Back To List

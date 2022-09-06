@@ -1,0 +1,36 @@
+<b>Thanks for ordering from the iBookz company - we value your custom.</b>
+<br>
+<div class="large-6 columns">
+    <h4>Order Summary</h4>
+    <table bgcolor="#b3d9ff" style="border: 1px solid black;">
+        <thead>
+            <tr style="border: 1px solid black;">
+                <th width="200">Item</th>
+                <th width="200">Price</th>
+                <th width="200">Quantity</th>
+                <th width="200">Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+                <tr style="border: 1px solid black;">
+                    <td align="center" style="border: 1px solid black;">{{item.title}}</td>
+                    <td align="center" style="border: 1px solid black;">£{{item.displayPrice}}</td>
+                    <td align="center" style="border: 1px solid black;">{{item.quantity}}</td>
+                    <td align="center" style="border: 1px solid black;">£{{item.displayTotal}}</td>                          
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="row">
+        <div class="large-6 columns">
+            <h4>Total: <b>£{{amount}}</b></h4>
+        </div>
+        <div class="large-6 columns">
+            
+        </div>
+    </div>
+    <b>The items will be despatched to you within the next 24 hours.</b>
+    <br><br>
+    <b>Regards - Chris </b>
+</div>

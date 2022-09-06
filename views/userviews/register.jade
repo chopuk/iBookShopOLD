@@ -1,0 +1,46 @@
+extends ../layout
+
+block content
+
+  div.container
+    div.row
+      div.col-md-4
+        .panel.panel-default
+          .panel-heading
+            h3.panel-title.text-center Registration Details
+          .panel-body
+            br
+            form(action='/register', method='POST')
+              .form-group
+                input(type='text', name='username', class='form-control', placeholder='Username',required, autofocus)
+              .form-group
+                input(type='password', name='password', class='form-control nomargin', placeholder='Password', required)
+              .form-group
+                input(type='email', name='email', class='form-control', placeholder='Email',required)
+              .form-group
+                input(type='text', name='name', class='form-control', placeholder='Name',required)
+              .form-group
+                select.form-control(name='gender')
+                  option(selected,disabled) Gender
+                  option(value='male') Male
+                  option(value='female') Female
+                  option(value='neuter') Neuter
+              .form-group 
+                .row
+                  .col-md-9        
+                    input(type='text', name='searchPostcode', class='form-control', placeholder='Post Code', id='searchPostcode')
+                  .col-md-3
+                    button(class='btn btn-primary btn-round btn-sm', id='btnAddress') Find Address
+              .form-group
+                div(id='lookup_field')
+              .form-group  
+                div(id='addressDiv')
+                  input(type='text', name='address', class='form-control', id='line_1', placeholder='Address Line 1', readonly)
+                  input(type='text', name='posttown', class='form-control', id='posttown', placeholder='Post Town', readonly)
+                  input(type='text', name='postcode', class='form-control', id='postcode', placeholder='Post Code', readonly)
+              .form-group
+                button(class='btn btn-primary btn-round btn-sm', type='submit') Register
+            a(href='/login') Already Registered? Log In
+            #message
+            if message
+              h3.text-center.error-message #{message}

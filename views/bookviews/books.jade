@@ -1,0 +1,40 @@
+extends ../layout
+
+block content
+  div.row
+    div.col-md-8
+      form.form-inline.filterForm
+        .form-group
+          label(for='title-search') Filter by:
+          input#title-search.form-control(type='search', value='', placeholder='...Title')
+        .form-group
+          input#category-search.form-control(type='search', value='', placeholder='...Category')      
+  br
+  div.row(id='searchable-title',style='margin:0')
+    div.row(id='searchable-category',style='margin:0')
+      if books
+        each book, i in books
+          div.col-lg-2.col-md-3.col-sm-4.col-xs-6.book
+            a(href='/books/details/#{book._id}')
+              img.bookimage(src='/images/#{book.cover}')
+            h5.title #{book.title}
+            p.description
+              span 
+                !=truncateText(book.description,50)
+            .priceSmall
+              span
+                !=displayPrice(book.price)
+            .price
+              | Buy it for 
+              span
+                !=displayPrice(book.price)
+            br
+            h5.categories #{book.categories}
+            if book.quantity > 0
+              form(method='post', action='/cart/#{book._id}')
+                input.btn.btn-primary.btn-round(type='submit', value='Add To Cart')
+                input(type='hidden', value='{_csrf}', name='_csrf')
+            else
+              a.btn.btn-danger.btn-round(href='#') Out Of Stock
+        else
+          h3(style='margin-left: 20px') There are no books that match your criteria

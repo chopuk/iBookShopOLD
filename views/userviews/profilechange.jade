@@ -1,0 +1,57 @@
+extends ../layout
+
+block content
+
+  div.container
+    div.row
+      div.col-md-4
+        .panel.panel-default
+          .panel-heading
+            h3.panel-title.text-center Change Details
+          .panel-body
+            br
+            form(action='/profile/change', method='POST')
+              input(type='hidden', name='password', value='#{user.password}')
+              .form-group
+                input(type='text', name='username', class='form-control', value='#{user.username}', readonly)
+              .form-group
+                input(type='email', name='email', class='form-control', value='#{user.email}',required)
+              .form-group
+                input(type='text', name='name', class='form-control', value='#{user.name}',required)
+              .form-group
+                select.form-control(name='gender')
+                  if user.gender == 'male'
+                    option(value='male',selected) Male
+                  else
+                    option(value='male') Male
+                  if user.gender == 'female'
+                    option(value='female',selected) Female
+                  else
+                    option(value='female') Female
+                  if user.gender == 'neuter'
+                    option(value='neuter',selected) Neuter
+                  else
+                    option(value='neuter') Neuter
+              a.btn.btn-primary.btn-round.btnChangeAddress(href='#') Change Address
+              br
+              br
+              div(id='changeAddress')
+                .form-group 
+                  .row
+                    .col-md-9        
+                      input(type='text', name='searchPostcode', class='form-control', placeholder='Post Code', id='searchPostcode')
+                    .col-md-3
+                      button(class='btn btn-primary btn-round btn-sm', id='btnAddress') Find Address
+                .form-group
+                  div(id='lookup_field_change')
+              .form-group
+                input(type='text', name='address', class='form-control', value='#{user.address}', id='line_1',readonly)
+              .form-group
+                input(type='text', name='posttown', class='form-control', value='#{user.posttown}',id='posttown', readonly)
+              .form-group
+                input(type='text', name='postcode', class='form-control', value='#{user.postcode}', id='postcode',readonly)
+              .form-group
+                button(class='btn btn-primary btn-round btn-sm', type='submit') Change
+            #message
+            if message
+              h3.text-center.error-message #{message}

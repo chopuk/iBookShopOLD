@@ -1,0 +1,35 @@
+div.panel.panel-default
+  div.panel-heading
+    h4.panel-title
+      if filter == 'None'
+        h4(style='text-align: center') Filter Options
+      else
+        h4(style='text-align: center;color:red') Filter: #{filter}
+div.panel.panel-primary
+  div.panel-heading
+    h4.panel-title
+      a(href='/books') All Books
+if categoryList
+  each item, i in categoryList
+    div.panel-group
+      div.panel.panel-primary
+        div.panel-heading
+          h4.panel-title
+            a(data-toggle="collapse",href='#collapse#{item.category}') #{item.category}
+        div(id='collapse#{item.category}',class='panel-collapse collapse')             
+          div.list-group
+            a.list-group-item.list-group-item-info(href='/search/#{item.category}') All #{item.category} Books
+              span.badge #{item.totalBooks}
+            each subitem in item.subcategory
+              a.list-group-item.list-group-item-info(href='/search/#{item.category}/#{subitem.name}') #{subitem.name}
+                span.badge #{subitem.bookCount}
+  div.panel-group
+    div.panel.panel-primary
+      div.panel-heading
+        h4.panel-title
+          a(data-toggle="collapse",href='#collapsePrice') Price Range
+      div(id='collapsePrice',class='panel-collapse collapse')             
+        div.list-group
+          a.list-group-item.list-group-item-info(href='/search/price/lt/10') £10.00 or less
+          a.list-group-item.list-group-item-info(href='/search/price/lt/20') £20.00 or less
+          a.list-group-item.list-group-item-info(href='/search/price/gt/50') £50.00 or more   

@@ -1,0 +1,22 @@
+extends ../layout
+
+block content         
+  div.container
+    div.row
+      div.col-md-4
+        .panel.panel-default
+          .panel-heading
+            h3.panel-title.text-center Log In
+          .panel-body
+            br
+            form(action='/login', method='POST')
+              .form-group
+                input(type='text', name='username', class='form-control', placeholder='Username',required, autofocus)
+              .form-group
+                input(type='password', name='password', class='form-control nomargin', placeholder='Password', required)
+              .form-group
+                button(class='btn btn-primary btn-round btn-sm', type='submit') Login
+            a(href='/register') Not Registered? Register
+            #message
+            if message
+              h3.text-center.error-message #{message}
