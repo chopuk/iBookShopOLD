@@ -87,11 +87,11 @@ app.get('/amit', (req, res, err) => {
 })
 
 app.get('/megan', (req, res, err) => {
-    res.send('My a little beauty!')
+    res.send('My what little beauty!')
 })
 
 app.get('/ffion', (req, res, err) => {
-    res.send('Welsh Beauty!')
+    res.send('Welsh beauty better than Shauna!')
 })
 
 dotenv.config();
