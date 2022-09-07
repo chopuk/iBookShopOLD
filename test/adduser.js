@@ -4,12 +4,12 @@ var db = {
     addUser: function(){
         
         var newUser = User({
-            name: 'Chris Harris',
-            username: 'bigchopper',
+            name: 'Beautiful Amit',
+            username: 'amit',
             password: 'qwerty',
-            email: 'me@mine.com',
-            gender: 'male',
-            address: '320 Cannock Road'
+            email: 'amit@israel.com',
+            gender: 'female',
+            address: 'Tel Aviv'
         });
 
         newUser.save(function(err) {

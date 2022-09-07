@@ -90,6 +90,10 @@ app.get('/megan', (req, res, err) => {
     res.send('My a little beauty!')
 })
 
+app.get('/ffion', (req, res, err) => {
+    res.send('Welsh Beauty!')
+})
+
 dotenv.config();
 const port = process.env.PORT || 3000
 
