@@ -1,0 +1,116 @@
+<section class="pb-5 pt-0 ps-5 pe-5"></section>
+
+  <div class="container mt-3">
+    <h2>Your Cart</h2>
+    <p>Below are details of your cart at the moment.</p>
+
+    <div class="bg-secondary p-4 rounded">
+
+      <table class="table table-primary table-striped">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total Price</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for (var item of cart.items) { %>
+            <tr>
+              <td><%= item.title %></td>
+              <td><%- displayPrice(item.price) %></td>
+              <td><%= item.quantity %></td>
+              <td><%- displayPrice(item.total) %></td>
+              <td>
+                <form action='/cart/additem/<%= item.bookId %>', method='POST' class="m-0 p-0">
+                  <input type="hidden" value="{_csrf}" name="_csrf"/>
+                  <input type="submit" class="btn btn-primary btn-sm rounded"
+                    value="Add Another"/>
+                </form>
+              </td>
+              <td>
+                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#removeItemModel" data-bs-item="<%= item.bookId %>">
+                  Remove
+                </button>
+              </td>
+            </tr> 
+          <% } %>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr> 
+          <tr>
+            <td class="fw-bold">Number of items:</td>
+            <td class="fw-bold"><%= cart.itemsCount %></td>
+            <td class="fw-bold">Total Price:</td>
+            <td class="fw-bold"><%- displayPrice(cart.total) %></td>
+            <td>
+              <a href="/book/booklist" class="btn btn-secondary btn-sm text-light">Continue Shopping</a>
+            </td>
+            <td>
+              <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#emptyCartModel">
+                Empty Cart
+              </button>
+            </td>
+          </tr> 
+        </tbody>
+      </table>
+    
+  </div>
+
+  </div>
+
+</section>
+
+<!-- Model for deleting a single item from the cart -->
+<div class="modal fade" id="removeItemModel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Confirm</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to remove this item?
+      </div>
+      <div class="modal-footer">
+        <form action='/cart/removeitem/<%= item.bookId %>', method='POST' class="m-0 p-0" id="removeItemForm">
+          <input type="hidden" value="{_csrf}" name="_csrf"/>
+          <input type="submit" class="btn btn-warning btn-sm rounded"
+            value="Yes"/>
+        </form>
+        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">No</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Model for emptying the cart -->
+<div class="modal fade" id="emptyCartModel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Confirm</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to remove the whole cart?
+      </div>
+      <div class="modal-footer">
+        <form action='/cart/emptycart', method='POST' class="m-0 p-0">
+          <input type="hidden" value="{_csrf}" name="_csrf"/>
+          <input type="submit" class="btn btn-warning btn-sm rounded"
+            value="Yes"/>
+        </form>
+        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">No</button>
+      </div>
+    </div>
+  </div>
+</div>

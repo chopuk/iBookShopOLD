@@ -1,17 +1,16 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
-var itemsSchema = new Schema({
+const itemsSchema = new Schema({
 	bookId: String, 
 	title: String,
 	price: Number, 
 	quantity:Number, 
 	total: Number,
-},	{versionKey: false});
+},	{versionKey: false})
 
-var cart = function(){
+const cart = function(){
     var cartSchema = new Schema({
-		sessionID: String,		
 		username: String,
         items: [itemsSchema],
 		total: Number,
@@ -20,9 +19,9 @@ var cart = function(){
 	},
 	{
     	versionKey: false
-	});
+	})
 	
-	return mongoose.model('Cart', cartSchema);
-};
+	return mongoose.model('Cart', cartSchema)
+}
 
-module.exports = cart();
+module.exports = cart()

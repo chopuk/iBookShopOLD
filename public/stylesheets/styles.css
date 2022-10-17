@@ -1,0 +1,74 @@
+.container {
+    max-width: 1280px !important;
+}
+.filter-buttons {
+    margin-top: 70px;
+}
+.filter-buttons .btn:focus{
+    outline: none !important;
+    box-shadow: none !important;
+    background-color: #53bd50 !important;
+    color: #fff !important;
+}
+.filter-buttons .btn-primary{
+    background-color: #fff !important;
+    border: none !important;
+}
+.filter-buttons .btn-primary:hover{
+    background-color: #f7941d !important;
+    color: #fff !important;
+}
+.card {
+    height: 350px;
+}
+.card img {
+    height: 300px;
+    width: 220px;
+}
+.title {
+    font-size: 16px;
+}
+.hide {
+    display: none;
+}
+.out-of-stock {
+    background-color: red !important;
+}
+
+.login {
+    background-color: rgb(205, 231, 209);
+    border-radius: 20px;
+    width: 35vw;
+    /* height: 25vh; */
+    min-width: 400px;
+}
+a.welcome {
+    color: yellow !important;
+}
+.addressDiv {
+    display: none;
+}
+.invalid {
+    border: 3px solid red !important;
+}
+
+.bookdetails {
+    margin-top: 70px;
+} 
+.bookdetails img {
+    height: 500px;
+    width: 400px;
+}
+.bookinfo {
+    width: 700px;
+}
+.bookinfo1 {
+    height: 500px;
+}
+.itemsInCart {
+    color: rgb(233, 240, 241) !important;
+    font-weight: bold;
+}
+td {
+    vertical-align: middle;
+}

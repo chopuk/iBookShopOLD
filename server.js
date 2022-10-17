@@ -1,101 +1,125 @@
-const mongoose = require('mongoose')
 const dotenv = require('dotenv')
-const fs = require('fs')
 const path = require('path')
 const logger = require('morgan')
-const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
-const passport = require('passport')
-const initPassport = require('./passport/init');
-const express = require('express')
-const expressSession = require('express-session')
-const app = express()
+const cookieParser = require('cookie-parser')
+const isAuthorized = require('./middleware/auth');
 
-const Session = require('./models/session')
-const Cart = require('./models/cart')
-const Book = require('./models/book')
-
-const configDB = require('./config/database.js')
-configDB.connect();
-const MongoStore = require('connect-mongo')
-
-//const test = require('./test/adduser')
-//test.addUser()
-
-const userRoutes = require('./routes/user');
-const bookRoutes = require('./routes/book');
-const cartRoutes = require('./routes/cart');
-const checkoutRoutes = require('./routes/checkout');
+const cors = require('cors')
 
 // The following required for email templates in controller checkout.js
 global.appRoot = path.resolve(__dirname);
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'))
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')))
+const express = require('express')
+const app = express()
+app.use(cors())
+
+//define shortcuts for required directories (used in templates, defined in layout.ejs)
+
 app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist/'))
 app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist/'))
 app.use('/bootstrap-social', express.static(__dirname + '/node_modules/bootstrap-social'))
+app.use('/bootstrap-icons', express.static(__dirname + '/node_modules/bootstrap-icons'))
+app.use('/isotope', express.static(__dirname + '/node_modules/isotope-layout/dist/'))
+
+// define local functions used in templates
+
+app.locals.moment = require('moment')
 
 app.locals.truncateText = function(text,length){
     var truncatedText = text.substring(0,length)
     return truncatedText
-};
+}
 
 app.locals.displayPrice = function(price){
     var formattedPrice = price.toFixed(2)
     return "£" + formattedPrice
-};
+}
 
-app.locals.moment = require('moment')
+app.locals.buttonText = function(quantity){
+    var bText
+    if (quantity > 0) {
+        bText = "Add To Basket"
+    } else {
+        bText = "Out Of Stock"
+    }
 
-app.use(expressSession({
-    secret: 'iamanamazingprogrammer', 
-    resave: false, 
-    saveUninitialized: false
-    //store: new MongoStore({ mongoUrl: mongoose.connection,
-    //                        ttl: 10 * 60 }) // 10 minutes session timeout
-}));
+    return bText
+}
 
-// Configuring Passport
-app.use(passport.initialize())
-app.use(passport.session())
-initPassport(passport)
-        
+// define the session middleware
+const session = require('express-session')
+
+// this is in milliseconds, examples below
+// 24 * 60 * 60 * 1000 = 24 hours
+// 30 * 60 * 1000 = 30 minutes
+// 20 * 1000 = 20 seconds
+const timeout = 10 * 60 * 1000 // 10 minutes
+
+app.use(session({
+    secret: "thisismysecretkey",
+    //cookie: { maxAge: 30000 },
+    saveUninitialized: false,
+    resave: false
+}))
+
+// other middleware
+app.use(express.json())
+app.use(logger('dev'))
+app.use(cookieParser())
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(express.static(path.join(__dirname, 'public'))) 
+app.use(isAuthorized)
+
+// set loggedIn and user data for navbar customization
 app.use(function(req, res, next) {
-    //res.locals.user = req.user
-    res.locals.loggedIn = (req.user) ? true : false
+    res.locals.loggedIn = (req.isAuthorized) ? true : false
+    res.locals.user = req.user
     next()
-    })
-
-app.use('/', userRoutes(passport))
-//app.use('/', bookRoutes(passport))
-app.use('/', cartRoutes(passport))
-app.use('/', checkoutRoutes(passport))
-
-
-app.get('/', (req, res, err) => {
-    res.send('This is my little Bookshop!!!')
 })
 
-app.get('/amit', (req, res, err) => {
-    res.send('I love Amit - she the most beautiful girl in the world!!!!')
+// view engine setup
+const expressLayouts = require('express-ejs-layouts')
+app.set('view engine', 'ejs')
+app.use(expressLayouts)
+
+// define the routes
+const userRoutes = require('./routes/user')
+const bookRoutes = require('./routes/book')
+const orderRoutes = require('./routes/order')
+const cartRoutes = require('./routes/cart')
+//const checkoutRoutes = require('./routes/checkout')
+
+app.use('/user', userRoutes())
+app.use('/book', bookRoutes())
+app.use('/order', orderRoutes())
+app.use('/cart', cartRoutes())
+//app.use('/', checkoutRoutes())
+
+// initial route is the login page
+app.get('/', function(req, res) {
+    res.redirect('/user/login')
 })
 
-app.get('/megan', (req, res, err) => {
-    res.send('My what little beauty!')
+// default route
+app.get('*', function(req, res) {
+    res.send('....oops - that page does not exist. Please try again x')
 })
 
-app.get('/ffion', (req, res, err) => {
-    res.send('Welsh beauty with big fuckin tits better than Shauna!')
-})
+// connect to MongoDB
+const configDB = require('./config/database.js')
+configDB.connect()
+
+// add user to test the database connection
+// const test = require('./test/adduser')
+// test.addUser()
 
 dotenv.config();
 const port = process.env.PORT || 3000
 
-app.listen(port)
-console.log(`iBookShop listening on port ${port}`)
+// start the server on selected port
+app.listen(port, function(err){
+    if (err) console.log(err)
+    console.log("iBookShop listening on port", port)
+})

@@ -1,37 +1,43 @@
-var mongoose = require('mongoose');
-var bcrypt   = require('bcrypt');
+const mongoose = require('mongoose')
+const bcrypt   = require('bcryptjs')
 
 // define the schema for our user model
-var userSchema = mongoose.Schema({
+const userSchema = mongoose.Schema({
 
     name: String,
     username: String,     
     password: String,
     email: String,
     gender: String,
-    address: String,
-    posttown: String,
+    addressline1: String,
+    addressline2: String,
+    addressline3: String,
     postcode: String,
     orderSeq: Number
 
-}, { versionKey: false} );
+}, { versionKey: false} )
 
-// on every save, hash the password
-//userSchema.pre('save', function(next) {
-  //this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync(8), null); 
- // next();
-//});
+// check for valid password
+userSchema.methods.ValidPassword = function(password) {
+    return bcrypt.compareSync(password, this.password)
+}
 
-// methods ======================
-// generating a hash
+// generate password hash
 userSchema.methods.generateHash = function(password) {
-    return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
-};
+    return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null)
+} 
 
-// checking if password is valid
-userSchema.methods.validPassword = function(password) {
-    return bcrypt.compareSync(password, this.local.password);
-};
+userSchema.pre('save', function(next) {
+
+    const user = this
+
+    // only hash the password if it has been modified (or is new)
+    if (!user.isModified('password')) return next()
+
+    // generate password hash
+    user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(8), null)
+    next()
+})
 
 // create the model for users and expose it to our app
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('User', userSchema)

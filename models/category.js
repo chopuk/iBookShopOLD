@@ -1,7 +1,7 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
-var category = function(){
+const category = function(){
 	var categorySchema = new Schema({
 		name: String,
         parent: String,
@@ -10,9 +10,9 @@ var category = function(){
 	},
 	{
     	versionKey: false
-	});
+	})
 	
-	return mongoose.model('Category', categorySchema);
-};
+	return mongoose.model('Category', categorySchema)
+}
 
-module.exports = category();
+module.exports = category()

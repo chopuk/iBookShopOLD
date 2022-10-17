@@ -1,12 +1,12 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
-var inCartSchema = new Schema({
-	sessionID: String, 
+const inCartSchema = new Schema({
+	username: String, 
 	quantity: Number
-},  {versionKey: false});
+},  {versionKey: false})
 
-var book = function(){
+const book = function(){
     var bookSchema = new Schema({
 		title: String,		
 		description: String,
@@ -21,14 +21,14 @@ var book = function(){
 	},
 	{
     	versionKey: false
-	});
-	
+	})
+
 	// Shorten text
 	bookSchema.methods.truncateText = function(length){
-		return this.description.substring(0,length);
-	};
-	
-	return mongoose.model('Book', bookSchema);
-};
+		return this.description.substring(0,length)
+	}
 
-module.exports = book();
+	return mongoose.model('Book', bookSchema)
+}
+
+module.exports = book()

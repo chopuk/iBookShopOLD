@@ -1,0 +1,63 @@
+<section class="mt-5">
+  <div class="container">
+    <div class="d-flex flex-column align-items-center justify-content-center vh-100">
+      <div class="login py-2 px-5">
+        <div class="text-center">
+          <h3>Register</h3>
+        </div>
+        <%- include ('../partials/messages'); %>
+        <form id="registrationForm" action='/user/register', method='POST'>
+          <div class="form-group">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" id="username" name="username" class="form-control" autofocus/>
+          </div>
+          <div class="form-group">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" id="password" name="password" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <label for="confirmpassword" class="form-label">Confirm Password</label>
+            <input type="password" id="confirmpassword" name="confirmpassword" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <label for="name class="form-label">Name</label>
+            <input type="text" id="name" name="name" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" id="email" name="email" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <label for="gender" class="form-label">Gender</label>
+            <select name="gender" id="gender" class="form-select">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="neuter">Neuter</option>
+            </select>
+          </div>
+          <div class="form-group"> 
+            <label for="searchPostcode" class="form-label">Postcode</label>
+            <div class="d-flex justify-content-between">
+                <input type="text" placeholder="Post Code" id="searchPostcode" class="form-control me-5"/>
+                <button type="button" id="btnAddress" class="btn btn-primary" onclick="getAddresses()">Search</button>
+            </div>
+          </div>
+          <div class="form-group addressDiv mt-2">
+            <select id="selectaddress" class="form-select" onChange="updateAddress()">
+            </select>
+          </div>
+          <div class="form-group addressDiv"> 
+            <div>
+              <input type="text" name="addressline1" id="addressline1" class="form-control mt-2"/>
+              <input type="text" name="addressline2" id="addressline2" class="form-control mt-2"/>
+              <input type="text" name="addressline3" id="addressline3" class="form-control mt-2"/>
+              <input type="text" name="postcode" id="postcode" class="form-control mt-2"/>
+            </div>
+          </div>
+          <button type="button" class="btn btn-success w-100 mt-4" onclick="validateRegistration()">Register</button>
+        </form>
+        <p class="mb-0 text-center">Already registered?<a href="/user/login" class="text-decoration-none"> Log In</a></p>
+      </div>
+    </div>
+  </div>
+</section>
