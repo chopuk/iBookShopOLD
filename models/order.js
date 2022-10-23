@@ -7,6 +7,7 @@ const itemsSchema = new Schema({
 	price: Number, 
 	quantity:Number, 
 	total: Number,
+	totalInteger: Number,
 },	{versionKey: false})
 
 const order = function(){

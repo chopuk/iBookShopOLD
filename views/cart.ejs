@@ -14,10 +14,22 @@
             <th>Quantity</th>
             <th>Total Price</th>
             <th></th>
-            <th></th>
+            <th>
+              <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#emptyCartModel">
+                Empty Cart
+              </button>
+            </th>
           </tr>
         </thead>
         <tbody>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr> 
           <% for (var item of cart.items) { %>
             <tr>
               <td><%= item.title %></td>
@@ -55,9 +67,11 @@
               <a href="/book/booklist" class="btn btn-secondary btn-sm text-light">Continue Shopping</a>
             </td>
             <td>
-              <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#emptyCartModel">
-                Empty Cart
-              </button>
+              <form action='/checkout/buynow', method='POST' class="m-0 p-0">
+                <input type="hidden" value="{_csrf}" name="_csrf"/>
+                <input type="submit" class="btn btn-primary btn-sm rounded"
+                  value="Buy Now"/>
+              </form>
             </td>
           </tr> 
         </tbody>

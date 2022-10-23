@@ -112,7 +112,7 @@ db.books.insert(
         price: 33.50,
         featured: true,
         quantity: 1234,
-        categories: ['Fiction/Adult']
+        categories: ['Food/Chicken']
     }
 );
 

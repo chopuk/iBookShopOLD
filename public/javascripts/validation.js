@@ -41,8 +41,6 @@ function validateRegistration() {
         registrationForm.submit() 
     }
 
-    registrationForm.submit() 
-
 }
 
 function validateProfile() {

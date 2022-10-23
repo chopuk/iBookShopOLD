@@ -1,11 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const inCartSchema = new Schema({
-	username: String, 
-	quantity: Number
-},  {versionKey: false})
-
 const book = function(){
     var bookSchema = new Schema({
 		title: String,		
@@ -16,8 +11,7 @@ const book = function(){
 		cover: String,
         featured: Boolean,
 		quantity: Number,
-        categories: [],
-		inCart: [inCartSchema]
+        categories: []
 	},
 	{
     	versionKey: false

@@ -72,3 +72,11 @@ a.welcome {
 td {
     vertical-align: middle;
 }
+
+@media ( width > 1200px) {
+    .login {
+
+        width: 70vw;
+
+    }
+}

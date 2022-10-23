@@ -1,17 +1,17 @@
 <% if(typeof alert != 'undefined') { %>
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-    <% alert.forEach(function(error) { %>
-      <p class="m-0 p-0"><%= error.msg %> </p>  
-    <% }) %>
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-  <% } %>
-  <% if(typeof message != 'undefined') { %>
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-          <p class="m-0 p-0"><%= message %> </p> 
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-  <% } %>
-  <div id="clientvalidationDiv"class="alert alert-warning alert-dismissible fade show hide" role="alert">
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <% alert.forEach(function(error) { %>
+    <p class="m-0 p-0"><%= error.msg %> </p>  
+  <% }) %>
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
+<% } %>
+<% if(typeof message != 'undefined') { %>
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <p class="m-0 p-0"><%= message %> </p> 
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+<% } %>
+<div id="clientvalidationDiv"class="alert alert-warning alert-dismissible fade show hide" role="alert">
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>

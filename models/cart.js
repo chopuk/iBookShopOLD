@@ -4,9 +4,11 @@ const Schema = mongoose.Schema
 const itemsSchema = new Schema({
 	bookId: String, 
 	title: String,
+	cover: String,
 	price: Number, 
 	quantity:Number, 
 	total: Number,
+	totalInteger: Number,
 },	{versionKey: false})
 
 const cart = function(){
