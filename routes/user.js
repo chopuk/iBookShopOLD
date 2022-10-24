@@ -5,6 +5,12 @@ const Cart = require('../models/cart')
 const jwt = require('jsonwebtoken')
 const { check, validationResult } = require('express-validator')
 
+const request = require('request')
+const fetch = require('node-fetch');
+
+const dotenv = require('dotenv')
+dotenv.config()
+
 module.exports = function(){
 
     // get the login page
@@ -199,6 +205,30 @@ module.exports = function(){
 					res.sendStatus(500)
 				}
 			}
+		})
+
+		// get the addresses from rapidAPI
+		router.get('/addresses', async function(req, res) {
+
+			const postcode = req.query.postcode
+
+			const url = process.env.RAPID_API_URL + postcode
+
+			const options = {
+				method: 'GET',
+				headers: {
+					'X-RapidAPI-Key': process.env.RAPID_API_KEY,
+					'X-RapidAPI-Host': process.env.RAPID_API_HOST
+				}
+			}
+
+			fetch(url, options)
+				.then(res => res.json())
+				.then(json => {
+					console.log(JSON.stringify(json))
+					res.send(json)
+				})
+				.catch(err => console.error('error:' + err))
 		})
 
 		return router

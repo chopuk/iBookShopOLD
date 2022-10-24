@@ -9,16 +9,14 @@ async function getAddresses() {
     $('.addressDiv').fadeIn(2000)
 
     const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': 'e353a58900msha9aa573f039cae8p1eedbcjsn5817e3d24a4c',
-            'X-RapidAPI-Host': 'uk-address-and-postcodes.p.rapidapi.com'
-        }
+        method: 'GET'
     }
 
     const enteredPostcode = document.getElementById("searchPostcode")
-    const fetchString = 'https://uk-address-and-postcodes.p.rapidapi.com/rapidapi/v1/autocomplete/addresses?query='
+    const fetchString = 'https://ibookshop.onrender.com/user/addresses?postcode='
+    //const fetchString = 'http://localhost:3000/user/addresses?postcode='
                             + enteredPostcode.value
+
     const response = await fetch(fetchString, options)
     const data = await response.json()
     const addresses = data.result.hits
@@ -72,4 +70,3 @@ function toggleReadOnlyAttribute(value) {
     }
 
 }
-

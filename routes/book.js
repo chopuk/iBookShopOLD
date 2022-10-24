@@ -14,7 +14,6 @@ module.exports = function(router){
                 const books = await Book.find({}).sort([ [ 'title', 1 ] ]) // 1 for ascending, -1 for descending
                 books.forEach(function(book){
                     book.truncateText = book.truncateText(16)
-                    book.category = book.categories[0].split('/')[0]
                 })
                 res.render('books', {
                     user: req.user,

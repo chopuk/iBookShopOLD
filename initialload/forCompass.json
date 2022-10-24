@@ -8,7 +8,7 @@
         "price":19.99,
         "featured":false,
         "quantity":10,
-        "categories":["Computer/NodeJS"]
+        "genre":"Computer"
     },
     {       
         "title":"NodeJS for Me",
@@ -19,7 +19,7 @@
         "price":29.99,
         "featured":false,
         "quantity":100,
-        "categories":["Computer/NodeJS"]
+        "genre":"Computer"
     },
     {       
         "title":"NodeJS for Professionals",
@@ -30,7 +30,7 @@
         "price":39.99,
         "featured":false,
         "quantity":44,
-        "categories":["Computer/NodeJS"]
+        "genre":"Computer"
     },
     {       
         "title":"JavaScript for Beginners",
@@ -41,7 +41,7 @@
         "price":19.99,
         "featured":false,
         "quantity":0,
-        "categories":["Computer/JavaScript"]
+        "genre":"Computer"
     },
     {       
         "title":"JavaScript for Me",
@@ -52,7 +52,7 @@
         "price":29.99,
         "featured":false,
         "quantity":0,
-        "categories":["Computer/JavaScript"]
+        "genre":"Computer"
     },
     {       
         "title":"JavaScript for Professionals",
@@ -63,7 +63,7 @@
         "price":39.99,
         "featured":false,
         "quantity":78,
-        "categories":["Computer/JavaScript"]
+        "genre":"Computer"
     },
     {       
         "title":"Windows 11 for Professionals",
@@ -74,7 +74,7 @@
         "price":19.99,
         "featured":false,
         "quantity":56,
-        "categories":["Computer/Windows 11"]
+        "genre":"Computer"
     },
     {       
         "title":"Windows 11 is Great",
@@ -85,7 +85,7 @@
         "price":9.99,
         "featured":false,
         "quantity":400,
-        "categories":["Computer/Windows 11"]
+        "genre":"Computer"
     },
     {       
         "title":"Windows 11 for Windows 11",
@@ -96,7 +96,7 @@
         "price":79.99,
         "featured":false,
         "quantity":99,
-        "categories":["Computer/Windows 11"]
+        "genre":"Computer"
     },
     {       
         "title":"Windows 11 the Best",
@@ -107,7 +107,7 @@
         "price":40.50,
         "featured":false,
         "quantity":23,
-        "categories":["Computer/Windows 11"]
+        "genre":"Computer"
     },
     {       
         "title":"Windows 11 beats Linux",
@@ -118,7 +118,7 @@
         "price":9.20,
         "featured":false,
         "quantity":41,
-        "categories":["Computer/Windows 11"]
+        "genre":"Computer"
     },
     {       
         "title":"Windows 11 for the Consumer",
@@ -129,7 +129,7 @@
         "price":5.01,
         "featured":false,
         "quantity":24,
-        "categories":["Computer/Windows 11"]
+        "genre":"Computer"
     },
     {       
         "title":"Windows 11 for the Consumer",
@@ -140,7 +140,7 @@
         "price":32.99,
         "featured":false,
         "quantity":45,
-        "categories":["Computer/Apps"]
+        "genre":"Computer"
     },
     {       
         "title":"TikTok For Adults",
@@ -151,7 +151,7 @@
         "price":33.99,
         "featured":false,
         "quantity":88,
-        "categories":["Computer/Apps"]
+        "genre":"Computer"
     },
     {       
         "title":"TikTok For Kids",
@@ -162,7 +162,7 @@
         "price":3.50,
         "featured":false,
         "quantity":77,
-        "categories":["Computer/Apps"]
+        "genre":"Computer"
     },
     {       
         "title":"The Facebook Phemomenom",
@@ -173,7 +173,7 @@
         "price":77.99,
         "featured":false,
         "quantity":56,
-        "categories":["Computer/Apps"]
+        "genre":"Computer"
     },
     {       
         "title":"BBC Weather App Explained",
@@ -184,7 +184,7 @@
         "price":78.77,
         "featured":false,
         "quantity":15,
-        "categories":["Computer/Apps"]
+        "genre":"Computer"
     },
     {       
         "title":"Snapchat is Stupid",
@@ -195,7 +195,7 @@
         "price":3.79,
         "featured":false,
         "quantity":66,
-        "categories":["Computer/Apps"]
+        "genre":"Computer"
     },
     {       
         "title":"Instagram Rules The Waves",
@@ -206,7 +206,7 @@
         "price":21.21,
         "featured":true,
         "quantity":9,
-        "categories":["Computer/Apps"]
+        "genre":"Computer"
     },
     {       
         "title":"Instagram Privacy",
@@ -217,7 +217,7 @@
         "price":8.55,
         "featured":false,
         "quantity":8,
-        "categories":["Computer/Apps"]
+        "genre":"Computer"
     },
     {       
         "title":"YouTube Is Cool",
@@ -228,7 +228,7 @@
         "price":7.00,
         "featured":false,
         "quantity":6,
-        "categories":["Computer/Apps"]
+        "genre":"Computer"
     },
     {       
         "title":"YouTube Premium For Free",
@@ -239,7 +239,7 @@
         "price":10.00,
         "featured":false,
         "quantity":411,
-        "categories":["Computer/Apps"]
+        "genre":"Computer"
     },
     {       
         "title":"Spotify v YouTube Music",
@@ -250,7 +250,7 @@
         "price":25.25,
         "featured":false,
         "quantity":41,
-        "categories":["Computer/Apps"]
+        "genre":"Computer"
     },
     {       
         "title":"Chicken Chinese",
@@ -261,7 +261,7 @@
         "price":25.50,
         "featured":false,
         "quantity":21,
-        "categories":["Food/Chicken"]
+        "genre":"Food"
     },
     {       
         "title":"Chicken Indian",
@@ -272,7 +272,7 @@
         "price":25.75,
         "featured":false,
         "quantity":21,
-        "categories":["Food/Chicken"]
+        "genre":"Food"
     },
     {       
         "title":"Chicken Thai",
@@ -283,7 +283,7 @@
         "price":20.25,
         "featured":false,
         "quantity":27,
-        "categories":["Food/Chicken"]
+        "genre":"Food"
     },
     {       
         "title":"Chicken Sandwiches",
@@ -294,7 +294,7 @@
         "price":21.25,
         "featured":false,
         "quantity":26,
-        "categories":["Food/Chicken"]
+        "genre":"Food"
     },
     {       
         "title":"Sticky Chicken",
@@ -305,7 +305,7 @@
         "price":66.25,
         "featured":false,
         "quantity":28,
-        "categories":["Food/Chicken"]
+        "genre":"Food"
     },
     {       
         "title":"Chicken Drumsticks On Toast",
@@ -316,7 +316,7 @@
         "price":6.99,
         "featured":false,
         "quantity":27,
-        "categories":["Food/Chicken"]
+        "genre":"Food"
     },
     {       
         "title":"Chicken Wine",
@@ -327,7 +327,7 @@
         "price":4.49,
         "featured":false,
         "quantity":26,
-        "categories":["Food/Chicken"]
+        "genre":"Food"
     },
     {       
         "title":"Beans on Toast",
@@ -338,7 +338,7 @@
         "price":80.00,
         "featured":false,
         "quantity":25,
-        "categories":["Food/Breakfast"]
+        "genre":"Food"
     },
     {       
         "title":"Bacon Baps Are The Best",
@@ -349,7 +349,7 @@
         "price":27.08,
         "featured":false,
         "quantity":24,
-        "categories":["Food/Breakfast"]
+        "genre":"Food"
     },
     {       
         "title":"How to Fry An Egg",
@@ -360,7 +360,7 @@
         "price":32.75,
         "featured":false,
         "quantity":23,
-        "categories":["Food/Breakfast"]
+        "genre":"Food"
     },
     {       
         "title":"Nice Cup Of Tea",
@@ -371,7 +371,7 @@
         "price":13.76,
         "featured":false,
         "quantity":22,
-        "categories":["Food/Breakfast"]
+        "genre":"Food"
     },
     {       
         "title":"Hash Browns. Really?",
@@ -382,7 +382,7 @@
         "price":25.25,
         "featured":false,
         "quantity":211,
-        "categories":["Food/Breakfast"]
+        "genre":"Food"
     },
     {       
         "title":"How to Butter Toast",
@@ -393,7 +393,7 @@
         "price":25.25,
         "featured":false,
         "quantity":211,
-        "categories":["Food/Breakfast"]
+        "genre":"Food"
     },
     {       
         "title":"Blood Splatter Analysis",
@@ -404,7 +404,7 @@
         "price":25.55,
         "featured":false,
         "quantity":211,
-        "categories":["Television/Dexter"]
+        "genre":"Television"
     },
     {       
         "title":"The Ice Bucket Murders",
@@ -415,7 +415,7 @@
         "price":67.55,
         "featured":false,
         "quantity":211,
-        "categories":["Television/Dexter"]
+        "genre":"Television"
     },
     {       
         "title":"Phasers on Stun",
@@ -426,7 +426,7 @@
         "price":25.55,
         "featured":false,
         "quantity":211,
-        "categories":["Television/Star Trek"]
+        "genre":"Television"
     },
     {       
         "title":"Aye Captain",
@@ -437,7 +437,7 @@
         "price":26.55,
         "featured":false,
         "quantity":211,
-        "categories":["Television/Star Trek"]
+        "genre":"Television"
     },
     {       
         "title":"Ahead Warp Facter 5",
@@ -448,7 +448,7 @@
         "price":29.55,
         "featured":false,
         "quantity":211,
-        "categories":["Television/Star Trek"]
+        "genre":"Television"
     },
     {       
         "title":"Blood Splatter Analysis",
@@ -459,7 +459,7 @@
         "price":25.55,
         "featured":false,
         "quantity":211,
-        "categories":["Television/Star Trek"]
+        "genre":"Television"
     },
     {       
         "title":"Fascinating - The Mr Spock Story",
@@ -470,7 +470,7 @@
         "price":25.55,
         "featured":false,
         "quantity":211,
-        "categories":["Television/Star Trek"]
+        "genre":"Television"
     },
     {       
         "title":"Its Life Jim",
@@ -481,7 +481,7 @@
         "price":25.55,
         "featured":false,
         "quantity":211,
-        "categories":["Television/Star Trek"]
+        "genre":"Television"
     },
     {       
         "title":"Shes wrapped In Plastic",
@@ -492,7 +492,7 @@
         "price":40.41,
         "featured":false,
         "quantity":67,
-        "categories":["Television/Twin Peaks"]
+        "genre":"Television"
     },
     {       
         "title":"Meanwhile - The Laura Palmer Story",
@@ -503,7 +503,7 @@
         "price":40.41,
         "featured":false,
         "quantity":67,
-        "categories":["Television/Twin Peaks"]
+        "genre":"Television"
     },
     {       
         "title":"Thats Damn Fine Coffee",
@@ -514,7 +514,7 @@
         "price":40.41,
         "featured":false,
         "quantity":67,
-        "categories":["Television/Twin Peaks"]
+        "genre":"Television"
     },
     {       
         "title":"The Waterfalls Of Twin Peaks",
@@ -525,7 +525,7 @@
         "price":40.11,
         "featured":false,
         "quantity":67,
-        "categories":["Television/Twin Peaks"]
+        "genre":"Television"
     },
     {       
         "title":"Shes Filled With Secrets",
@@ -536,7 +536,7 @@
         "price":40.41,
         "featured":false,
         "quantity":67,
-        "categories":["Television/Twin Peaks"]
+        "genre":"Television"
     },
     {       
         "title":"The Best Cherry Pie",
@@ -547,7 +547,7 @@
         "price":60.76,
         "featured":false,
         "quantity":0,
-        "categories":["Television/Twin Peaks"]
+        "genre":"Television"
     },
     {       
         "title":"A Place Of Wonder",
@@ -558,7 +558,7 @@
         "price":70.41,
         "featured":false,
         "quantity":67,
-        "categories":["Television/Twin Peaks"]
+        "genre":"Television"
     },
     {       
         "title":"The Road House Meals",
@@ -569,7 +569,7 @@
         "price":4.88,
         "featured":false,
         "quantity":67,
-        "categories":["Television/Twin Peaks"]
+        "genre":"Television"
     },
     {       
         "title":"Covid-19 Is Dead",
@@ -580,7 +580,7 @@
         "price":7.47,
         "featured":false,
         "quantity":67,
-        "categories":["Factual/Science"]
+        "genre":"Science"
     },
     {       
         "title":"Jupiters Moons",
@@ -591,7 +591,7 @@
         "price":6.47,
         "featured":false,
         "quantity":0,
-        "categories":["Factual/Science"]
+        "genre":"Science"
     },
     {       
         "title":"The Stars In Motion",
@@ -602,7 +602,7 @@
         "price":6.47,
         "featured":false,
         "quantity":6,
-        "categories":["Factual/Science"]
+        "genre":"Science"
     },
     {       
         "title":"Radioactivity For Dummies",
@@ -613,7 +613,7 @@
         "price":6.47,
         "featured":false,
         "quantity":67,
-        "categories":["Factual/Science"]
+        "genre":"Science"
     },
     {       
         "title":"The Elements And All That",
@@ -624,7 +624,7 @@
         "price":6.47,
         "featured":false,
         "quantity":10,
-        "categories":["Factual/Science"]
+        "genre":"Science"
     },
     {       
         "title":"E = MC Squared",
@@ -635,7 +635,7 @@
         "price":6.47,
         "featured":false,
         "quantity":100,
-        "categories":["Factual/Science"]
+        "genre":"Science"
     },
     {       
         "title":"Black Holes Are Not Black",
@@ -646,7 +646,7 @@
         "price":61.47,
         "featured":false,
         "quantity":67,
-        "categories":["Factual/Science"]
+        "genre":"Science"
     },
     {       
         "title":"And God Said....",
@@ -657,7 +657,7 @@
         "price":2.47,
         "featured":false,
         "quantity":0,
-        "categories":["Factual/Science"]
+        "genre":"Science"
     },
     {       
         "title":"Headaches Arent Real",
@@ -668,7 +668,7 @@
         "price":3.47,
         "featured":false,
         "quantity":57,
-        "categories":["Factual/Science"]
+        "genre":"Science"
     },
     {       
         "title":"You Are But Dust",
@@ -679,7 +679,7 @@
         "price":4.47,
         "featured":false,
         "quantity":67,
-        "categories":["Factual/Science"]
+        "genre":"Science"
     },
     {       
         "title":"Murder On 2nd Street",
@@ -690,7 +690,7 @@
         "price":5.99,
         "featured":false,
         "quantity":10,
-        "categories":["Fiction/Adult"]
+        "genre":"Fiction"
     },
     {       
         "title":"The Love Of My Life",
@@ -701,7 +701,7 @@
         "price":6.99,
         "featured":false,
         "quantity":10,
-        "categories":["Fiction/Adult"]
+        "genre":"Fiction"
     },
     {       
         "title":"There She Goes",
@@ -712,7 +712,7 @@
         "price":7.99,
         "featured":false,
         "quantity":10,
-        "categories":["Fiction/Adult"]
+        "genre":"Fiction"
     },
     {       
         "title":"My Word Is My Bond",
@@ -723,7 +723,7 @@
         "price":8.99,
         "featured":false,
         "quantity":10,
-        "categories":["Fiction/Adult"]
+        "genre":"Fiction"
     },
     {       
         "title":"Home To Roost",
@@ -734,7 +734,7 @@
         "price":8.99,
         "featured":false,
         "quantity":10,
-        "categories":["Fiction/Adult"]
+        "genre":"Fiction"
     },
     {       
         "title":"The Strange House In The Sea",
@@ -745,7 +745,7 @@
         "price":8.99,
         "featured":false,
         "quantity":10,
-        "categories":["Fiction/Adult"]
+        "genre":"Fiction"
     },
     {       
         "title":"Am I Alive Or Dead?",
@@ -756,7 +756,7 @@
         "price":1.99,
         "featured":false,
         "quantity":10,
-        "categories":["Fiction/Adult"]
+        "genre":"Fiction"
     },
     {       
         "title":"Keep It Simple Stupid",
@@ -767,7 +767,7 @@
         "price":88.99,
         "featured":false,
         "quantity":10,
-        "categories":["Fiction/Adult"]
+        "genre":"Fiction"
     },
     {       
         "title":"The Winter Of Discontent",
@@ -778,7 +778,7 @@
         "price":18.99,
         "featured":false,
         "quantity":10,
-        "categories":["Fiction/Adult"]
+        "genre":"Fiction"
     },
     {       
         "title":"The Face OF Beauty",
@@ -789,7 +789,7 @@
         "price":8.99,
         "featured":false,
         "quantity":10,
-        "categories":["Fiction/Adult"]
+        "genre":"Fiction"
     },
     {       
         "title":"Eyes Of Gold",
@@ -800,7 +800,7 @@
         "price":84.99,
         "featured":false,
         "quantity":10,
-        "categories":["Fiction/Adult"]
+        "genre":"Fiction"
     },
     {       
         "title":"Dont Tell The Teacher",
@@ -811,7 +811,7 @@
         "price":12.00,
         "featured":false,
         "quantity":10,
-        "categories":["Fiction/Adult"]
+        "genre":"Fiction"
     },
     {       
         "title":"Its You Or Me",
@@ -822,7 +822,7 @@
         "price":8.99,
         "featured":false,
         "quantity":10,
-        "categories":["Fiction/Adult"]
+        "genre":"Fiction"
     },
     {       
         "title":"The Mountains Of The World",
@@ -833,7 +833,7 @@
         "price":12.44,
         "featured":false,
         "quantity":25,
-        "categories":["World/Geography"]
+        "genre":"World"
     },
     {       
         "title":"Frozen World",
@@ -844,7 +844,7 @@
         "price":12.50,
         "featured":false,
         "quantity":25,
-        "categories":["World/Geography"]
+        "genre":"World"
     },
     {       
         "title":"The Saharra",
@@ -855,7 +855,7 @@
         "price":12.50,
         "featured":false,
         "quantity":25,
-        "categories":["World/Geography"]
+        "genre":"World"
     },
     {       
         "title":"The Islands Of Japan",
@@ -866,7 +866,7 @@
         "price":12.50,
         "featured":false,
         "quantity":25,
-        "categories":["World/Geography"]
+        "genre":"World"
     },
     {       
         "title":"The Coastline Of The UK",
@@ -877,7 +877,7 @@
         "price":18.30,
         "featured":false,
         "quantity":25,
-        "categories":["World/Geography"]
+        "genre":"World"
     },
     {       
         "title":"Freat Railway Journeys",
@@ -888,7 +888,7 @@
         "price":2.52,
         "featured":false,
         "quantity":25,
-        "categories":["World/Geography"]
+        "genre":"World"
     },
     {       
         "title":"Flying The Atlantic",
@@ -899,7 +899,7 @@
         "price":4.50,
         "featured":false,
         "quantity":25,
-        "categories":["World/Geography"]
+        "genre":"World"
     },
     {       
         "title":"The Earth From Space",
@@ -910,7 +910,7 @@
         "price":1.50,
         "featured":false,
         "quantity":25,
-        "categories":["World/Geography"]
+        "genre":"World"
     },
     {       
         "title":"The Volcanoes Of Iceland",
@@ -921,7 +921,7 @@
         "price":18.50,
         "featured":false,
         "quantity":25,
-        "categories":["World/Geography"]
+        "genre":"World"
     },
     {       
         "title":"The Rivers Of Babylon",
@@ -932,7 +932,7 @@
         "price":17.50,
         "featured":false,
         "quantity":25,
-        "categories":["World/Geography"]
+        "genre":"World"
     },
     {       
         "title":"Israel In Spring",
@@ -943,7 +943,7 @@
         "price":16.50,
         "featured":false,
         "quantity":25,
-        "categories":["World/Geography"]
+        "genre":"World"
     },
     {       
         "title":"North Korea Missile Sites",
@@ -954,7 +954,7 @@
         "price":12.50,
         "featured":false,
         "quantity":25,
-        "categories":["World/Geography"]
+        "genre":"World"
     },
     {       
         "title":"Death Valley",
@@ -965,7 +965,7 @@
         "price":32.50,
         "featured":false,
         "quantity":25,
-        "categories":["World/Geography"]
+        "genre":"World"
     },
     {       
         "title":"Yosemite National Park",
@@ -976,7 +976,7 @@
         "price":14.99,
         "featured":false,
         "quantity":25,
-        "categories":["World/Geography"]
+        "genre":"World"
     },
     {       
         "title":"The Malvern Hills",
@@ -987,7 +987,7 @@
         "price":12.50,
         "featured":false,
         "quantity":25,
-        "categories":["World/Geography"]
+        "genre":"World"
     },
     {       
         "title":"The Castles Of Wales",
@@ -998,7 +998,7 @@
         "price":12.99,
         "featured":false,
         "quantity":25,
-        "categories":["World/Geography"]
+        "genre":"World"
     },
     {       
         "title":"The Mountain Goats Of Switzerland",
@@ -1009,7 +1009,7 @@
         "price":12.50,
         "featured":false,
         "quantity":25,
-        "categories":["World/Geography"]
+        "genre":"World"
     },
     {       
         "title":"The Rivers Of The World",
@@ -1020,7 +1020,7 @@
         "price":12.99,
         "featured":false,
         "quantity":25,
-        "categories":["World/Geography"]
+        "genre":"World"
     },
     {       
         "title":"Dracarys - A Dragons Life",
@@ -1031,7 +1031,7 @@
         "price":22.99,
         "featured":false,
         "quantity":66,
-        "categories":["Television/Game Of Thrones"]
+        "genre":"Television"
     },
     {       
         "title":"Winterfell In The Summer",
@@ -1042,7 +1042,7 @@
         "price":22.50,
         "featured":false,
         "quantity":66,
-        "categories":["Television/Game Of Thrones"]
+        "genre":"Television"
     },
     {       
         "title":"Lannisters Debts",
@@ -1053,7 +1053,7 @@
         "price":21.50,
         "featured":false,
         "quantity":66,
-        "categories":["Television/Game Of Thrones"]
+        "genre":"Television"
     },
     {       
         "title":"I Drink And Know Things",
@@ -1064,7 +1064,7 @@
         "price":45.50,
         "featured":false,
         "quantity":66,
-        "categories":["Television/Game Of Thrones"]
+        "genre":"Television"
     },
     {       
         "title":"Oath Keeper - A Lovel Sword",
@@ -1075,7 +1075,7 @@
         "price":67.50,
         "featured":false,
         "quantity":66,
-        "categories":["Television/Game Of Thrones"]
+        "genre":"Television"
     },
     {       
         "title":"The Road To Kings Landing",
@@ -1086,7 +1086,7 @@
         "price":2.50,
         "featured":false,
         "quantity":66,
-        "categories":["Television/Game Of Thrones"]
+        "genre":"Television"
     },
     {       
         "title":"Hold The Door!",
@@ -1097,6 +1097,6 @@
         "price":8.50,
         "featured":false,
         "quantity":66,
-        "categories":["Television/Game Of Thrones"]
+        "genre":"Television"
     }
 ]

@@ -1,35 +1,43 @@
 <section class="filter-buttons">
-  <div class = "row mt-0 mb-0 button-group filter-button-group">
-    <div class = "col d-flex justify-content-center mb-0">
-        <button type = "button" disabled class = "btn btn-primary mx-1 text-dark">Filter:</button>
-        <button type = "button" data-filter = "*" class = "btn btn-primary mx-1 text-dark">All</button>
-        <button type = "button" data-filter = ".Computer" class = "btn btn-primary mx-1 text-dark">Computer</button>
-        <button type = "button" data-filter = ".Television" class = "btn btn-primary mx-1 text-dark">Television</button>
-        <button type = "button" data-filter = ".Food" class = "btn btn-primary mx-1 text-dark">Food</button>
-        <button type = "button" data-filter = ".Factual" class = "btn btn-primary mx-1 text-dark">Factual</button>
-        <button type = "button" data-filter = ".Fiction" class = "btn btn-primary mx-1 text-dark">Fiction</button>
+  <div class = "col d-flex justify-content-center">
+      <p class="mb-2"><input type="text" class="quicksearch" placeholder="Search" /></p>
+  </div>
+</section>
+
+<section class="filter-buttons mt-0">
+  <div class = "row mt-0 mb-2 button-group sort-by-button-group">
+    <div class = "col d-flex justify-content-center">
+        <button type = "button" disabled class = "btn btn-primary btn-sm mx-2 text-dark">Sort:</button>
+        <button type = "button" data-sort-value = "title" class = "btn btn-primary btn-sm text-dark mx-1">Title</button>
+        <button type = "button" data-sort-value = "justprice" class = "btn btn-primary btn-sm text-dark mx-1">Price (asc)</button>
+        <button type = "button" data-sort-value = "justpricedesc" class = "btn btn-primary btn-sm text-dark mx-1">Price (desc)</button>
     </div>
   </div>
 </section>
 
-<section class="filter-buttons mt-2">
-  <div class = "row mt-0 mb-2 button-group sort-by-button-group">
-    <div class = "col d-flex justify-content-center">
-        <button type = "button" disabled class = "btn btn-primary mx-1 text-dark">Sort:</button>
-        <button type = "button" data-sort-value = "title" class = "btn btn-primary mx-1 text-dark">Title</button>
-        <button type = "button" data-sort-value = "justprice" class = "btn btn-primary mx-1 text-dark">Price (asc)</button>
-        <button type = "button" data-sort-value = "justpricedesc" class = "btn btn-primary mx-1 text-dark">Price (desc)</button>
+<section class="filter-buttons mt-0">
+  <div class = "row mt-0 mb-0 button-group filter-button-group">
+    <div class = "col d-flex justify-content-center mb-3">
+        <button type = "button" disabled class = "btn btn-primary btn-sm mx-2 text-dark">Filter:</button>
+        <button type = "button" data-filter = "*" class = "btn btn-primary btn-sm text-dark mx-1">All</button>
+        <button type = "button" data-filter = ".Computer" class = "btn btn-primary btn-sm text-dark mx-1">Computer</button>
+        <button type = "button" data-filter = ".Television" class = "btn btn-primary btn-sm text-dark mx-1">Television</button>
+        <button type = "button" data-filter = ".Food" class = "btn btn-primary btn-sm text-dark mx-1">Food</button>
+        <button type = "button" data-filter = ".Science" class = "btn btn-primary btn-sm text-dark mx-1">Science</button>
+        <button type = "button" data-filter = ".World" class = "btn btn-primary btn-sm text-dark mx-1">World</button>
+        <button type = "button" data-filter = ".Fiction" class = "btn btn-primary btn-sm text-dark mx-1">Fiction</button>
     </div>
   </div>
 </section>
 
 <section class="pb-5 pt-0 ps-5 pe-5">
+    
     <div class="container">
       <div class="row text-center g-4" id="books-list">
 
         <% for (var book of books) { %>
 
-          <div class="col-xl-3 col-lg-4 col-md-6 book-item <%= book.category %>">
+          <div class="col-xl-3 col-lg-4 col-md-6 book-item <%= book.genre %>">
             <div class="card bg-dark text-light">
               <div class="card-body d-flex flex-column align-items-center">
                 <h5 class="card-title mb-3 title"><%= book.title %></h5>
@@ -64,7 +72,6 @@
           </div>
 
         <% } %>
-
     </div>
   </div>
 </section>

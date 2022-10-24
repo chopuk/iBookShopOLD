@@ -9,8 +9,6 @@ const dotenv = require('dotenv')
 dotenv.config()
 
 const stripe = require('stripe')(process.env.STRIPE_API_KEY)
-const IBOOKSHOP_URL = 'http://localhost:3000'
-const IMAGES_URL = 'https://ibookshop.onrender.com'
 
 module.exports = function(router){
     

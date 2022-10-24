@@ -11,7 +11,7 @@ const book = function(){
 		cover: String,
         featured: Boolean,
 		quantity: Number,
-        categories: []
+        genre: String
 	},
 	{
     	versionKey: false

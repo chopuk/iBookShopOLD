@@ -10,6 +10,9 @@ var $books = $('#books-list').isotope({
         title: '.title',
         justprice: '.justprice parseFloat',
         justpricedesc: '.justpricedesc parseFloat'
+    },
+    filter: function() {
+        return qsRegex ? $(this).text().match( qsRegex ) : true;
     }      
 })
 
@@ -24,3 +27,27 @@ $('.sort-by-button-group').on( 'click', 'button', function() {
     var sortValue = $(this).attr('data-sort-value')
     $books.isotope({ sortBy: sortValue })
 })
+
+// quick search regex
+var qsRegex;
+
+// use value of search field to filter
+var $quicksearch = $('.quicksearch').keyup( debounce( function() {
+  qsRegex = new RegExp( $quicksearch.val(), 'gi' );
+  $books.isotope();
+}, 200 ) );
+
+// debounce so filtering doesn't happen every millisecond
+function debounce( fn, threshold ) {
+  var timeout;
+  threshold = threshold || 100;
+  return function debounced() {
+    clearTimeout( timeout );
+    var args = arguments;
+    var _this = this;
+    function delayed() {
+      fn.apply( _this, args );
+    }
+    timeout = setTimeout( delayed, threshold );
+  };
+}
