@@ -16,16 +16,20 @@ var $books = $('#books-list').isotope({
     }      
 })
 
-// filter books on button click
-$('.filter-button-group').on( 'click', 'button', function() {
-    var filterValue = $(this).attr('data-filter')
-    $books.isotope({ filter: filterValue })
+// filter books from dropdown
+$('#selectFilter').change(function(){
+
+  const filterValue = $(this).val()
+  $books.isotope({ filter: filterValue})
+
 })
 
-// sort books on button click
-$('.sort-by-button-group').on( 'click', 'button', function() {
-    var sortValue = $(this).attr('data-sort-value')
-    $books.isotope({ sortBy: sortValue })
+// filter books from dropdown
+$('#selectSort').change(function(){
+
+  const sortValue = $(this).val()
+  $books.isotope({ sortBy: sortValue})
+
 })
 
 // quick search regex
@@ -33,21 +37,21 @@ var qsRegex;
 
 // use value of search field to filter
 var $quicksearch = $('.quicksearch').keyup( debounce( function() {
-  qsRegex = new RegExp( $quicksearch.val(), 'gi' );
-  $books.isotope();
-}, 200 ) );
+  qsRegex = new RegExp( $quicksearch.val(), 'gi' )
+  $books.isotope()
+}, 200 ) )
 
 // debounce so filtering doesn't happen every millisecond
 function debounce( fn, threshold ) {
   var timeout;
-  threshold = threshold || 100;
+  threshold = threshold || 100
   return function debounced() {
-    clearTimeout( timeout );
-    var args = arguments;
-    var _this = this;
+    clearTimeout( timeout )
+    var args = arguments
+    var _this = this
     function delayed() {
-      fn.apply( _this, args );
+      fn.apply( _this, args )
     }
-    timeout = setTimeout( delayed, threshold );
-  };
+    timeout = setTimeout( delayed, threshold )
+  }
 }

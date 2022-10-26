@@ -35,8 +35,8 @@ module.exports = function(router){
                   }
                 }),
                 mode: 'payment',
-                success_url: `${process.env.IBOOKSHOP_URL}/checkout-success.html`,
-                cancel_url: `${process.env.IBOOKSHOP_URL}/checkout-cancel.html`,
+                success_url: `${process.env.IBOOKSHOP_URL}/${process.env.STRIPE_SUCCESS_PAGE}`,
+                cancel_url: `${process.env.IBOOKSHOP_URL}/${process.env.STRIPE_CANCEL_PAGE}`,
             })
             
             res.redirect(303, session.url);

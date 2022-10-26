@@ -37,10 +37,8 @@
 
 .login {
     background-color: rgb(205, 231, 209);
-    border-radius: 20px;
-    width: 35vw;
-    /* height: 25vh; */
-    min-width: 400px;
+    width: 80vw;
+    min-width: 200px;
 }
 a.welcome {
     color: yellow !important;
@@ -79,4 +77,21 @@ td {
         width: 70vw;
 
     }
+}
+#postcodeURL {
+    display: none;
+}
+.quicksearch {
+    width: 150px;
+    min-width: 20px;
+    margin-right: 20px;
+}
+#selectFilter {
+    width: 150px;
+    min-width: 20px;
+    margin-right: 20px;
+}
+#selectSort {
+    width: 150px;
+    min-width: 20px;
 }

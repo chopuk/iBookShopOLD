@@ -2,7 +2,7 @@ const dotenv = require('dotenv')
 const path = require('path')
 
 // the following required for email templates in controller checkout.js
-global.appRoot = path.resolve(__dirname);
+global.appRoot = path.resolve(__dirname)
 
 // define the express app
 const express = require('express')
@@ -14,10 +14,10 @@ const cors = require('cors')
 app.use(cors())
 
 //define shortcuts for required directories (used in templates, defined in layout.ejs)
-require('./directories')(app,express)
+require('./server-directories')(app,express)
 
 // define local functions used in templates
-require('./locals')(app)
+require('./server-locals')(app)
 
 // view engine setup
 const expressLayouts = require('express-ejs-layouts')
@@ -25,10 +25,10 @@ app.set('view engine', 'ejs')
 app.use(expressLayouts)
 
 // configure the express session 
-require('./session')(app)
+require('./server-session')(app)
 
 // define the session middleware
-require('./middleware')(app,express)
+require('./server-middleware')(app,express)
 
 // define all the routes
 require('./routes/allRoutes')(app,router)

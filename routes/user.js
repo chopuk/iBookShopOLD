@@ -97,7 +97,7 @@ module.exports = function(){
 
 		// get the register page
 		 router.get('/register', function(req, res) {
-			res.render('register')
+			res.render('register', {postcodeURL: process.env.POSTCODE_URL})
 		})
 
 		// post the register page
@@ -156,7 +156,8 @@ module.exports = function(){
 		router.get('/profile', function(req, res) {
 			res.render('profile', {
 				user: req.user,
-				itemsCount: req.session.itemsCount})
+				itemsCount: req.session.itemsCount,
+				postcodeURL: process.env.POSTCODE_URL})
 		})
 
 		// post the profile page
@@ -166,7 +167,7 @@ module.exports = function(){
 				.isLength({ min: 3 })
 		], 
 		async function(req, res) {
-			// check if errors found
+			// check if errors found			
 			const errors = validationResult(req)
 			if(!errors.isEmpty()) {
 				const alert = errors.array()
@@ -222,13 +223,22 @@ module.exports = function(){
 				}
 			}
 
-			fetch(url, options)
-				.then(res => res.json())
-				.then(json => {
-					console.log(JSON.stringify(json))
-					res.send(json)
-				})
-				.catch(err => console.error('error:' + err))
+			try {
+				const response = await fetch(url, options)
+				const jsonDATA = await response.json()
+				res.send(jsonDATA)
+			} catch (error) {
+				console.log(error)
+				res.sendStatus(500)
+			}
+
+			// fetch(url, options)
+			// 	.then(res => res.json())
+			// 	.then(json => {
+			// 		console.log(JSON.stringify(json))
+			// 		res.send(json)
+			// 	})
+			// 	.catch(err => console.error('error:' + err))
 		})
 
 		return router

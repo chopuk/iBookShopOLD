@@ -3,7 +3,7 @@ const path = require('path')
 const logger = require('morgan')
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
-const isAuthorized = require('./middleware/auth');
+const isAuthorized = require('./server-auth');
 
 module.exports = function(app, express){
 

@@ -4,6 +4,8 @@ const addressline2 = document.getElementById("addressline2")
 const addressline3 = document.getElementById("addressline3")
 const postcode = document.getElementById("postcode")
 
+const mydropdown = document.getElementById("selectFilter")
+
 async function getAddresses() {
 
     $('.addressDiv').fadeIn(2000)
@@ -12,10 +14,10 @@ async function getAddresses() {
         method: 'GET'
     }
 
-    const enteredPostcode = document.getElementById("searchPostcode")
-    const fetchString = 'https://ibookshop.onrender.com/user/addresses?postcode='
-    //const fetchString = 'http://localhost:3000/user/addresses?postcode='
-                            + enteredPostcode.value
+    const enteredPostcode = document.getElementById("searchPostcode").value
+    const postcodeURL = document.getElementById("postcodeURL").innerHTML
+    
+    const fetchString = `${postcodeURL}?postcode=${enteredPostcode}`
 
     const response = await fetch(fetchString, options)
     const data = await response.json()
