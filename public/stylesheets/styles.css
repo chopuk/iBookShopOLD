@@ -34,12 +34,6 @@
 .out-of-stock {
     background-color: red !important;
 }
-
-.login {
-    background-color: rgb(205, 231, 209);
-    width: 80vw;
-    min-width: 200px;
-}
 a.welcome {
     color: yellow !important;
 }
@@ -70,14 +64,6 @@ a.welcome {
 td {
     vertical-align: middle;
 }
-
-@media ( width > 1200px) {
-    .login {
-
-        width: 70vw;
-
-    }
-}
 #postcodeURL {
     display: none;
 }
@@ -94,4 +80,37 @@ td {
 #selectSort {
     width: 150px;
     min-width: 20px;
+}
+.cart-box {
+    padding: 5px;
+}
+.login-box , .register-box, .profile-box {
+    height: 100vh;
+}
+.login {
+    background-color: rgb(205, 231, 209);
+    width: 70vw;
+    padding-left:20px;
+    padding-right:20px;
+}
+@media ( width < 500px) {
+    .login {
+        width: 100vw;
+        padding-left:2px;
+        padding-right:2px;
+    }
+    .login-box {
+        height: 30vh;
+    }
+    .register-box, .profile-box {
+        height: 80vh;
+    }
+}
+@media ( width < 500px) {
+    .cart-table {
+        font-size: 10px;
+    }
+    .cart-box {
+        padding: 0;
+    }
 }
