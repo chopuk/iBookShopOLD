@@ -224,8 +224,10 @@ module.exports = function(){
 			}
 
 			try {
+				console.log('Postcode url=' + url)
 				const response = await fetch(url, options)
 				const jsonDATA = await response.json()
+				console.log("jsonDATA=" + JSON.stringify(jsonDATA))
 				res.send(jsonDATA)
 			} catch (error) {
 				console.log(error)
