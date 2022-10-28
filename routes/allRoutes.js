@@ -20,7 +20,7 @@ module.exports = function(app,router){
 
     // default route
     app.get('*', function(req, res) {
-        res.send('....oops - that page does not exist. Please try again x')
+        res.send('....oops - that page does not exist. Please try again xxx')
     })
 
 }
