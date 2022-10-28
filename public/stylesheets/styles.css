@@ -100,11 +100,11 @@ td {
         padding-right:2px;
     }
     .login-box {
-        height: 45vh;
+        height: 58vh;
     }
     .register-box, .profile-box {
         height: 100vh;
-        margin-top: 80px;
+        margin-top: 150px;
     }
 }
 @media ( width < 500px) {
