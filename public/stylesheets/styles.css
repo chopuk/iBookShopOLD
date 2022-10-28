@@ -87,23 +87,24 @@ td {
 .login-box , .register-box, .profile-box {
     height: 100vh;
 }
-.login {
+.login-page, .register-page, .profile-page {
     background-color: rgb(205, 231, 209);
     width: 70vw;
     padding-left:20px;
     padding-right:20px;
 }
 @media ( width < 500px) {
-    .login {
+    .login-page, .register-page, .profile-page {
         width: 100vw;
         padding-left:2px;
         padding-right:2px;
     }
     .login-box {
-        height: 30vh;
+        height: 45vh;
     }
     .register-box, .profile-box {
-        height: 80vh;
+        height: 100vh;
+        margin-top: 80px;
     }
 }
 @media ( width < 500px) {

@@ -1,7 +1,7 @@
 <section class="mt-5">
   <div class="container">
     <div class="d-flex flex-column align-items-center justify-content-center profile-box">
-      <div class="login py-2">
+      <div class="profile-page py-2">
         <div class="text-center">
           <h3>Profile</h3>
         </div>
@@ -73,4 +73,6 @@
     </div>
   </div>
 </section>
-<div id="postcodeURL"><%= postcodeURL %></div>
+<% if(typeof postcodeURL != 'undefined') { %>
+  <div id="postcodeURL"><%= postcodeURL %></div>
+<% } %>

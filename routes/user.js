@@ -38,12 +38,13 @@ module.exports = function(){
 			} else {
 
 				try {
+					
 					// check in mongo if a user with username exists or not
-					const user = await User.findOne({ 'username' :  req.body.username })
+					const user = await User.findOne({ 'username' :  req.body.username.toLowerCase() })
 					
 					if (!user) {
 						// Username does not exist, log the error and redirect back
-						console.log('User not found with username ' + req.body.username)
+						console.log('User not found with username ' + req.body.username.toLowerCase())
 						res.render('login', {message : 'User not found'})               
 					} else if (!user.ValidPassword(req.body.password)) {
 						// User exists but wrong password, log the error 
@@ -67,7 +68,7 @@ module.exports = function(){
 						})
 
 						// check if a cart exists for this user
-						const cart = await Cart.findOne({ 'username' :  req.body.username })
+						const cart = await Cart.findOne({ 'username' :  req.body.username.toLowerCase() })
 						if (cart) {
 							console.log('Found cart for user.. setting itemsCount to: ' + cart.itemsCount)
 							req.session.itemsCount = cart.itemsCount
@@ -105,6 +106,8 @@ module.exports = function(){
 		[
 			check('username', 'The username must me 3+ characters long')
 				.isLength({ min: 3 }),
+			check('username', 'The username must be lowercase')
+				.isLowercase(),
 			check('password', 'Password must be at least 6 characters')
 				.isLength({ min: 6 })
 		], 
@@ -114,7 +117,7 @@ module.exports = function(){
 			if(!errors.isEmpty()) {
 				const alert = errors.array()
 				console.log(JSON.stringify(alert))
-				res.render('login', {
+				res.render('register', {
 					alert
 				})
 			} else {
@@ -212,7 +215,6 @@ module.exports = function(){
 		router.get('/addresses', async function(req, res) {
 
 			const postcode = req.query.postcode
-
 			const url = process.env.RAPID_API_URL + postcode
 
 			const options = {
@@ -224,23 +226,14 @@ module.exports = function(){
 			}
 
 			try {
-				console.log('Postcode url=' + url)
 				const response = await fetch(url, options)
 				const jsonDATA = await response.json()
-				console.log("jsonDATA=" + JSON.stringify(jsonDATA))
 				res.send(jsonDATA)
 			} catch (error) {
 				console.log(error)
 				res.sendStatus(500)
 			}
 
-			// fetch(url, options)
-			// 	.then(res => res.json())
-			// 	.then(json => {
-			// 		console.log(JSON.stringify(json))
-			// 		res.send(json)
-			// 	})
-			// 	.catch(err => console.error('error:' + err))
 		})
 
 		return router

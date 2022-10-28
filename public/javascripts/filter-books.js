@@ -1,3 +1,7 @@
+// quick search regex
+var qsRegex
+var filterValue
+
 // initialise Isotope plugin
 var $books = $('#books-list').isotope({
     itemSelector: '.book-item',
@@ -12,46 +16,26 @@ var $books = $('#books-list').isotope({
         justpricedesc: '.justpricedesc parseFloat'
     },
     filter: function() {
-        return qsRegex ? $(this).text().match( qsRegex ) : true;
+        var searchResult = qsRegex ? $(this).text().match( qsRegex ) : true
+        var filterResult = filterValue ? $(this).is(filterValue) : true
+        return searchResult && filterResult
     }      
 })
 
 // filter books from dropdown
-$('#selectFilter').change(function(){
-
-  const filterValue = $(this).val()
-  $books.isotope({ filter: filterValue})
-
+$('#selectFilter').on('change',function(){
+  filterValue = $(this).val()
+  $books.isotope()
 })
 
 // filter books from dropdown
-$('#selectSort').change(function(){
-
+$('#selectSort').on('change', function(){
   const sortValue = $(this).val()
   $books.isotope({ sortBy: sortValue})
-
 })
 
-// quick search regex
-var qsRegex;
-
 // use value of search field to filter
-var $quicksearch = $('.quicksearch').keyup( debounce( function() {
-  qsRegex = new RegExp( $quicksearch.val(), 'gi' )
+$('.quicksearch').on('keyup', function() {
+  qsRegex = new RegExp( $(this).val(), 'gi' )
   $books.isotope()
-}, 200 ) )
-
-// debounce so filtering doesn't happen every millisecond
-function debounce( fn, threshold ) {
-  var timeout;
-  threshold = threshold || 100
-  return function debounced() {
-    clearTimeout( timeout )
-    var args = arguments
-    var _this = this
-    function delayed() {
-      fn.apply( _this, args )
-    }
-    timeout = setTimeout( delayed, threshold )
-  }
-}
+})
