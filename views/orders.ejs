@@ -4,12 +4,11 @@
     <h2>Your Orders</h2>
     <p>Below is a list of all your recent orders with us.</p>
 
-    <div class="bg-secondary p-4 rounded">
+    <div class="bg-secondary rounded order-box">
 
-    
     <% for (var order of orders) { %>
 
-      <table class="table table-primary table-striped mt-0">
+      <table class="table table-primary table-striped m-0 order-table">
         <thead>
           <tr>
             <th>Order Number</th>
@@ -27,7 +26,7 @@
         </tbody>
       </table>
 
-      <table class="table table-success table-striped mb-5">
+      <table class="table table-success table-striped mb-3">
         <thead>
           <tr>
             <th>Title</th>

@@ -81,7 +81,7 @@ td {
     width: 150px;
     min-width: 20px;
 }
-.cart-box {
+.cart-box, .order-box {
     padding: 5px;
 }
 .login-box , .register-box, .profile-box {
@@ -108,10 +108,10 @@ td {
     }
 }
 @media ( width < 500px) {
-    .cart-table {
+    .cart-table, .order-table {
         font-size: 10px;
     }
-    .cart-box {
+    .cart-box, .order-box {
         padding: 0;
     }
 }
