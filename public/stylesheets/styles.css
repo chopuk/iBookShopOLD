@@ -106,7 +106,7 @@ td {
     }
     .register-box, .profile-box {
         height: 100vh;
-        margin-top: 150px;
+        margin-top: 180px;
     }
 }
 @media ( width < 500px) {
