@@ -88,10 +88,12 @@ td {
     height: 100vh;
 }
 .login-page, .register-page, .profile-page {
-    background-color: rgb(205, 231, 209);
+    background-color: rgb(237, 243, 238);
     width: 70vw;
     padding-left:20px;
     padding-right:20px;
+    border: 1px solid;
+    box-shadow: 5px 10px 8px #473d3d;
 }
 @media ( width < 500px) {
     .login-page, .register-page, .profile-page {
