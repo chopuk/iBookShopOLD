@@ -90,8 +90,8 @@ module.exports = function(router){
           var smtpTransport = nodemailer.createTransport({
               host: "smtp.mailgun.org",
               auth: {
-                  user: "postmaster@sandbox0a3403db16cb4e5eb827a4b224038209.mailgun.org",
-                  pass: "031277a26a348e4c166c7351d14f562f"
+                  user: process.env.MAILGUN_USER,
+                  pass: process.env.MAILGUN_PASSWORD
               }
           })
 

@@ -40,7 +40,8 @@ function validateRegistration() {
 
         clientvalidationDiv.classList.remove('hide')
 
-        window.scrollTo(0, 0)
+        $(this).scrollTop(0)
+        //window.scrollTo(0, 0)
 
     
     } else {
