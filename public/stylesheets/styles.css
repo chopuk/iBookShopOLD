@@ -98,8 +98,9 @@ td {
 @media ( width < 500px) {
     .login-page, .register-page, .profile-page {
         width: 100vw;
-        padding-left:2px;
-        padding-right:2px;
+        padding-left:10px;
+        padding-right:10px;
+        font-size: 10px !important;
     }
     .login-box {
         height: 58vh;
@@ -107,6 +108,21 @@ td {
     .register-box, .profile-box {
         height: 100vh;
         margin-top: 180px;
+    }
+    .form-title {
+        font-size: 14px;
+    }
+    #login-form input, #register-form input, #profile-form input {
+        font-size: 10px;
+    }
+    #register-form select, #profile-form select {
+        font-size: 10px;
+    }
+    .login-button, .register-button, .profile-button {
+        font-size: 12px !important;
+    }
+    #btnAddress {
+        font-size: 12px !important;
     }
 }
 @media ( width < 500px) {

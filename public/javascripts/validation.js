@@ -9,9 +9,7 @@ function validateRegistration() {
     const password = document.getElementById('password')
     const confirmpassword = document.getElementById('confirmpassword')
     const clientvalidationDiv = document.getElementById('clientvalidationDiv')
-    const registrationForm = document.getElementById('registrationForm')
-
-    $(this).scrollTop(0) // on mobile devices this will show the messages that are at the top
+    const registrationForm = document.getElementById('register-form')
 
     registrationForm.addEventListener('focus', () => {
         document.activeElement.classList.remove('invalid')
@@ -41,8 +39,6 @@ function validateRegistration() {
         })   
 
         clientvalidationDiv.classList.remove('hide')
-
-        $(this).scrollTop(0) // on mobile devices this will show the messages that are at the top
     
     } else {
         registrationForm.submit() 
@@ -55,7 +51,7 @@ function validateProfile() {
     const password = document.getElementById('password')
     const confirmpassword = document.getElementById('confirmpassword')
     const clientvalidationDiv = document.getElementById('clientvalidationDiv')
-    const profileForm = document.getElementById('profileForm')
+    const profileForm = document.getElementById('profile-form')
 
     profileForm.addEventListener('focus', () => {
         document.activeElement.classList.remove('invalid')
@@ -83,8 +79,6 @@ function validateProfile() {
 
         clientvalidationDiv.classList.remove('hide')
 
-        $(this).scrollTop(0) // on mobile devices this will show the messages that are at the top
-    
     } else {
         profileForm.submit() 
     }

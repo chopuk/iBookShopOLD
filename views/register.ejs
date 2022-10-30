@@ -3,10 +3,9 @@
     <div class="d-flex flex-column align-items-center justify-content-center register-box">
       <div class="register-page py-2">
         <div class="text-center">
-          <h3>Register</h3>
+          <h3 class="form-title">Register</h3>
         </div>
-        <%- include ('../partials/messages'); %>
-        <form id="registrationForm" action='/user/register', method='POST'>
+        <form id="register-form" action='/user/register', method='POST'>
           <div class="mt-2"">
             <label for="username" class="form-label">Username</label>
             <input type="text" id="username" name="username" class="form-control" autofocus/>
@@ -54,7 +53,8 @@
               <input type="text" name="postcode" id="postcode" class="form-control mt-2"/>
             </div>
           </div>
-          <button type="button" class="btn btn-success w-100 mt-4" onclick="validateRegistration()">Register</button>
+          <%- include ('../partials/messages') %>
+          <button type="button" class="btn btn-success w-100 mt-4 register-button" onclick="validateRegistration()">Register</button>
         </form>
         <p class="mb-0 text-center">Already registered?<a href="/user/login" class="text-decoration-none"> Log In</a></p>
       </div>

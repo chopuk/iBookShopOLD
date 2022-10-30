@@ -1,5 +1,5 @@
 <% if(typeof alert != 'undefined') { %>
-  <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+  <div class="alert alert-secondary alert-dismissible fade show mt-3 mb-0" role="alert">
   <% alert.forEach(function(error) { %>
     <p class="m-0 p-0"><%= error.msg %> </p>  
   <% }) %>
@@ -7,11 +7,11 @@
   </div>
 <% } %>
 <% if(typeof message != 'undefined') { %>
-      <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+      <div class="alert alert-secondary alert-dismissible fade show mt-3 mb-0" role="alert">
         <p class="m-0 p-0"><%= message %> </p> 
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
 <% } %>
-<div id="clientvalidationDiv"class="alert alert-secondary alert-dismissible fade show hide" role="alert">
+<div id="clientvalidationDiv"class="alert alert-secondary alert-dismissible fade show hide mb-0 mt-3 role="alert">
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>

@@ -3,10 +3,9 @@
     <div class="d-flex flex-column align-items-center justify-content-center login-box">
       <div class="login-page py-2">
         <div class="text-center">
-          <h3>Login</h3>
+          <h3 class="form-title">Login</h3>
         </div>
-        <%- include ('../partials/messages'); %>
-        <form id="loginForm" action='/user/login', method='POST'>
+        <form id="login-form" action='/user/login', method='POST'>
           <div class="mt-2">
             <label for="username" class="form-label">Username</label>
             <input type="text" id="username" name="username" class="form-control" autofocus required/>
@@ -15,7 +14,8 @@
             <label for="password class="form-label">Password</label>
             <input type="password" id="password" name="password" class="form-control" required/>
           </div>
-          <button type="submit" class="btn btn-success w-100 mt-4">Login</button>
+          <%- include ('../partials/messages') %>
+          <button type="submit" class="btn btn-success w-100 mt-4 login-button">Login</button>
         </form>
         <p class="mb-0 text-center">Not registered?<a href="/user/register" class="text-decoration-none"> Click here</a></p>
       </div>
