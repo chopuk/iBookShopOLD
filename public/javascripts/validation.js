@@ -11,6 +11,8 @@ function validateRegistration() {
     const clientvalidationDiv = document.getElementById('clientvalidationDiv')
     const registrationForm = document.getElementById('registrationForm')
 
+    $(this).scrollTop(0) // on mobile devices this will show the messages that are at the top
+
     registrationForm.addEventListener('focus', () => {
         document.activeElement.classList.remove('invalid')
     }, true)
@@ -40,9 +42,7 @@ function validateRegistration() {
 
         clientvalidationDiv.classList.remove('hide')
 
-        $(this).scrollTop(0)
-        //window.scrollTo(0, 0)
-
+        $(this).scrollTop(0) // on mobile devices this will show the messages that are at the top
     
     } else {
         registrationForm.submit() 
@@ -82,6 +82,8 @@ function validateProfile() {
         })   
 
         clientvalidationDiv.classList.remove('hide')
+
+        $(this).scrollTop(0) // on mobile devices this will show the messages that are at the top
     
     } else {
         profileForm.submit() 
