@@ -1,4 +1,7 @@
-// client side validation
+// Client side validation to improve user experience
+// and prevent unnecessary trips to the server
+
+// Of course, the server side will perform the same validations for security reasons
 
 function validateRegistration() {
 
@@ -28,14 +31,17 @@ function validateRegistration() {
     if (messages.length > 0) {
 
         messages.forEach ( message => {
-            newMessage = document.createElement('p')
-            newMessageText = document.createTextNode(message)
+            const newMessage = document.createElement('p')
+            const newMessageText = document.createTextNode(message)
             newMessage.appendChild(newMessageText)
             newMessage.className = "m-0 p-0"
             clientvalidationDiv.insertBefore(newMessage,clientvalidationDiv.lastChild)
         })   
 
         clientvalidationDiv.classList.remove('hide')
+
+        window.scrollTo(0, 0)
+
     
     } else {
         registrationForm.submit() 
@@ -67,8 +73,8 @@ function validateProfile() {
     if (messages.length > 0) {
 
         messages.forEach ( message => {
-            newMessage = document.createElement('p')
-            newMessageText = document.createTextNode(message)
+            const newMessage = document.createElement('p')
+            const newMessageText = document.createTextNode(message)
             newMessage.appendChild(newMessageText)
             newMessage.className = "m-0 p-0"
             clientvalidationDiv.insertBefore(newMessage,clientvalidationDiv.lastChild)

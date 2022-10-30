@@ -1,11 +1,13 @@
-// configure the express middleware
+const express = require('express')
 const path = require('path')
+
+// configure the express middleware
 const logger = require('morgan')
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 const isAuthorized = require('./server-auth');
 
-module.exports = function(app, express){
+module.exports = function(app){
 
     app.use(express.static(path.join(__dirname, 'public'))) 
 

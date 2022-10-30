@@ -1,3 +1,6 @@
+// check if the user has a web token,
+// i.e. they have successfully loggged in earlier
+
 const jwt = require('jsonwebtoken');
 
 module.exports = ( req, res, next ) => {

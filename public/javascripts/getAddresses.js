@@ -6,6 +6,11 @@ const postcode = document.getElementById("postcode")
 
 const mydropdown = document.getElementById("selectFilter")
 
+// During the registration process, the user inputs a postcode.
+// This javascript accesses a remote postcode API and returns
+// any matching addresses found. The user will select the appropriate
+// address and the form fields will be populated ready for submission.
+
 async function getAddresses() {
 
     $('.addressDiv').fadeIn(2000)

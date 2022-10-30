@@ -7,5 +7,3 @@ git commit -m "More Changes"
 git push
 echo.
 echo Done!
-
-

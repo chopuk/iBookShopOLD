@@ -1,6 +1,8 @@
-// Define directory shortcuts for layout.ejs
+const express = require('express')
 
-module.exports = function(app,express){
+// define directory shortcuts for layout.ejs
+
+module.exports = function(app){
     
     app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist/'))
     app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist/'))

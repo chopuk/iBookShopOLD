@@ -1,3 +1,14 @@
+// The books list page can be:
+// 1. filtered by Genre ( Computer, Television etc)
+// 2. sorted by Price ( ascending and descending )
+// 3. sorted by Title ( ascending )
+// 4. filtered by a Search field which searches the Title field
+
+// All this is accomplished by the isotope.js plugin.
+// The code below is taken from their documentation
+// and modified to meet the needs of the site.
+// There is a nice animation as the books are filtered!
+
 // quick search regex
 var qsRegex
 var filterValue

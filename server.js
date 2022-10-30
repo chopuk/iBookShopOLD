@@ -6,7 +6,6 @@ global.appRoot = path.resolve(__dirname)
 
 // define the express app
 const express = require('express')
-const router = express.Router()
 const app = express()
 
 // include cross origin resource sharing middleware
@@ -14,9 +13,9 @@ const cors = require('cors')
 app.use(cors())
 
 //define shortcuts for required directories (used in templates, defined in layout.ejs)
-require('./server-directories')(app,express)
+require('./server-directories')(app)
 
-// define local functions used in templates
+// define local functions used in ejs templates
 require('./server-locals')(app)
 
 // view engine setup
@@ -28,10 +27,10 @@ app.use(expressLayouts)
 require('./server-session')(app)
 
 // define the session middleware
-require('./server-middleware')(app,express)
+require('./server-middleware')(app)
 
 // define all the routes
-require('./routes/allRoutes')(app,router)
+require('./routes/allRoutes')(app)
 
 // connect to MongoDB
 const configDB = require('./config/database.js')

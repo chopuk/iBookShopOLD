@@ -97,7 +97,7 @@ module.exports = function(){
 		})
 
 		// get the register page
-		 router.get('/register', function(req, res) {
+		router.get('/register', function(req, res) {
 			res.render('register', {postcodeURL: process.env.POSTCODE_URL})
 		})
 
@@ -157,10 +157,18 @@ module.exports = function(){
 
 		// get the profile page
 		router.get('/profile', function(req, res) {
-			res.render('profile', {
-				user: req.user,
-				itemsCount: req.session.itemsCount,
-				postcodeURL: process.env.POSTCODE_URL})
+
+			// protect this route if the user hasn't logged in yet
+			if (!req.isAuthorized) {
+				console.log("User not Authorized - redirecting to login page...")
+				res.render('login')
+			} else {
+				res.render('profile', {
+					user: req.user,
+					itemsCount: req.session.itemsCount,
+					postcodeURL: process.env.POSTCODE_URL})
+			}
+
 		})
 
 		// post the profile page
@@ -179,35 +187,41 @@ module.exports = function(){
 					alert
 				})
 			} else {
-				try {
-					// check in mongo if a user with username exists or not
-					const user = await User.findOne({ 'username' :  req.body.username })
-					if (!user) {
-						console.log('User does not exist: ' + req.body.username)
-						res.render('profile', {message : 'Username does not exist'})              
-					} else {
-						// update the user
-						if (req.body.password.length > 0) {
-							user.password = req.body.password
-						}
-						user.username = req.body.username
-						user.email = req.body.email
-						user.name = req.body.name
-						user.gender = req.body.gender
-						user.addressline1 = req.body.addressline1
-						user.addressline2 = req.body.addressline2
-						user.addressline3 = req.body.addressline3
-						user.postcode = req.body.postcode
-						
-						// save the user
-						await user.save()
-						res.render('profile', {user: user, message : 'Profile Updated Sucessfully'})
+				// protect this route if the user hasn't logged in yet
+				if (!req.isAuthorized) {
+					console.log("User not Authorized - redirecting to login page...")
+					res.render('login')
+				} else {
+					try {
+						// check in mongo if a user with username exists or not
+						const user = await User.findOne({ 'username' :  req.body.username })
+						if (!user) {
+							console.log('User does not exist: ' + req.body.username)
+							res.render('profile', {message : 'Username does not exist'})              
+						} else {
+							// update the user
+							if (req.body.password.length > 0) {
+								user.password = req.body.password
+							}
+							user.username = req.body.username
+							user.email = req.body.email
+							user.name = req.body.name
+							user.gender = req.body.gender
+							user.addressline1 = req.body.addressline1
+							user.addressline2 = req.body.addressline2
+							user.addressline3 = req.body.addressline3
+							user.postcode = req.body.postcode
+							
+							// save the user
+							await user.save()
+							res.render('profile', {user: user, message : 'Profile Updated Sucessfully'})
 
-					}	
-				} catch (error) {
-					console.log(error)
-					res.sendStatus(500)
-				}
+						}	
+					} catch (error) {
+						console.log(error)
+						res.sendStatus(500)
+					}
+				}	
 			}
 		})
 

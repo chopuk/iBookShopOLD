@@ -51,88 +51,94 @@ module.exports = function(router){
     // display success page
     router.get('/success', async function(req, res) {
 
-      // stripe transaction was successful create order data and delete cart
-      try {
+      if (!req.isAuthorized) {
+        console.log("User not Authorized - redirecting to login page...")
+        res.render('login')
+      } else {
 
-        // Get cart 
-        cart = await Cart.findOne({ username :  req.user.username })
-        
-        // update the user sequence field
-        req.user.orderSeq = req.user.orderSeq + 1
-        await User.updateOne({ username: req.user.username }, { $set:{orderSeq: req.user.orderSeq } })
+        // stripe transaction was successful create order data and delete cart
+        try {
 
-        // add the new order
-        const newOrder = new Order()
-        newOrder.orderNo = req.user.username + req.user.orderSeq.toString()
-        newOrder.orderDate = new Date()
-        newOrder.username = req.user.username
-        newOrder.total = cart.total
-        newOrder.totalInteger = cart.totalInteger
-        newOrder.status = 'In Progress'
-        newOrder.items = cart.items
+          // Get cart 
+          const cart = await Cart.findOne({ username :  req.user.username })
+          
+          // update the user sequence field
+          req.user.orderSeq = req.user.orderSeq + 1
+          await User.updateOne({ username: req.user.username }, { $set:{orderSeq: req.user.orderSeq } })
 
-        await newOrder.save()
-        req.session.cart = {}
-        req.session.itemsCount = 0
+          // add the new order
+          const newOrder = new Order()
+          newOrder.orderNo = req.user.username + req.user.orderSeq.toString()
+          newOrder.orderDate = new Date()
+          newOrder.username = req.user.username
+          newOrder.total = cart.total
+          newOrder.totalInteger = cart.totalInteger
+          newOrder.status = 'In Progress'
+          newOrder.items = cart.items
 
-        // remove cart
-        await Cart.deleteOne({ username : req.user.username })
+          await newOrder.save()
+          req.session.cart = {}
+          req.session.itemsCount = 0
 
-        // Send confirmation email
-        const email = req.user.email
-        const customerName = req.user.name
-        // initialise smtp
-        var smtpTransport = nodemailer.createTransport({
-            host: "smtp.mailgun.org",
-            auth: {
-                user: "postmaster@sandbox0a3403db16cb4e5eb827a4b224038209.mailgun.org",
-                pass: "031277a26a348e4c166c7351d14f562f"
-            }
-        })
+          // remove cart
+          await Cart.deleteOne({ username : req.user.username })
 
-        for(var i = 0; i < cart.items.length; i++) {
-            cart.items[i].displayPrice = cart.items[i].price.toFixed(2)
-            cart.items[i].displayTotal = cart.items[i].total.toFixed(2)
-        }
+          // Send confirmation email
+          const email = req.user.email
+          const customerName = req.user.name
+          // initialise smtp
+          var smtpTransport = nodemailer.createTransport({
+              host: "smtp.mailgun.org",
+              auth: {
+                  user: "postmaster@sandbox0a3403db16cb4e5eb827a4b224038209.mailgun.org",
+                  pass: "031277a26a348e4c166c7351d14f562f"
+              }
+          })
 
-        const amount = parseFloat(cart.totalInteger/100).toFixed(2)
+          for(var i = 0; i < cart.items.length; i++) {
+              cart.items[i].displayPrice = cart.items[i].price.toFixed(2)
+              cart.items[i].displayTotal = cart.items[i].total.toFixed(2)
+          }
 
-        var templates = new EmailTemplates({root: path.join(global.appRoot,'emailTemplates')})
-        var context = {
-                        amount: amount,
-                        items: cart.items
-        }
+          const amount = parseFloat(cart.totalInteger/100).toFixed(2)
 
-        templates.render('emailConfirmation.html', context, function(err, html, text) {
-        
-            // setup email data
-            var mailOptions = {
-                from: "The iBookz Company <admin@ibookz.com", 
-                to: customerName + " " + "<" + email + ">", 
-                subject: "Order Confirmation", 
-                html: html
-            }
+          var templates = new EmailTemplates({root: path.join(global.appRoot,'emailTemplates')})
+          var context = {
+                          amount: amount,
+                          items: cart.items
+          }
 
-            // send email
-            smtpTransport.sendMail(mailOptions, function(error, info){
-                if(error){
-                    console.log(error)
-                }else{
-                    console.log("Message sent: " + info.messageId);
-                }  
-                smtpTransport.close()
-            })
+          templates.render('emailConfirmation.html', context, function(err, html, text) {
+          
+              // setup email data
+              var mailOptions = {
+                  from: "The iBookz Company <admin@ibookz.com", 
+                  to: customerName + " " + "<" + email + ">", 
+                  subject: "Order Confirmation", 
+                  html: html
+              }
 
-        })
+              // send email
+              smtpTransport.sendMail(mailOptions, function(error, info){
+                  if(error){
+                      console.log(error)
+                  }else{
+                      console.log("Message sent: " + info.messageId);
+                  }  
+                  smtpTransport.close()
+              })
 
-        res.render('checkout-success', {
-          totalPrice: req.session.totalPrice
-        })
+          })
 
-        } catch (error) {
-            console.log(error)
-            res.sendStatus(500)
-        }        
+          res.render('checkout-success', {
+            totalPrice: req.session.totalPrice
+          })
+
+          } catch (error) {
+              console.log(error)
+              res.sendStatus(500)
+          }  
+      }      
 
 	})
 

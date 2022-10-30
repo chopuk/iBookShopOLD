@@ -5,6 +5,7 @@ module.exports = function(router){
     // Get all books page
     router.get('/booklist', async function(req, res) {
         
+        // protect this route if the user hasn't logged in yet
         if (!req.isAuthorized) {
             console.log("User not Authorized - redirecting to login page...")
             res.render('login')
@@ -32,16 +33,23 @@ module.exports = function(router){
     // Get book details page
     router.get('/bookdetails/:id', async function(req, res) {
 
-        try {
-            const book = await Book.findOne({_id: req.params.id})
-			res.render('bookdetails', {
-                user: req.user,
-                book: book,
-                itemsCount: req.session.itemsCount
-            })
-        } catch (error) {
-            console.log(error)
-            res.sendStatus(500)
+         // protect this route if the user hasn't logged in yet
+         if (!req.isAuthorized) {
+            console.log("User not Authorized - redirecting to login page...")
+            res.render('login')
+        } else {
+
+            try {
+                const book = await Book.findOne({_id: req.params.id})
+                res.render('bookdetails', {
+                    user: req.user,
+                    book: book,
+                    itemsCount: req.session.itemsCount
+                })
+            } catch (error) {
+                console.log(error)
+                res.sendStatus(500)
+            }
         }
         
 	})
